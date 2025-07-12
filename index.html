@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Dania</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffe0ec, #e0fff5);
+      overflow-x: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 3rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #ff4081;
+      margin-bottom: 1rem;
+      animation: zoomIn 2s ease-in-out;
+    }
+
+    h2 {
+      color: #444;
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+    }
+
+    .quote-list {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #ffffffcc;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 2s ease-in;
+      text-align: left;
+    }
+
+    .quote-list li {
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #333;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .quote-list li::before {
+      content: "🌸";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 12px 30px;
+      border: 2px solid #ff4081;
+      background: transparent;
+      color: #ff4081;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff4081;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .emoji-flowers {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 1.8rem;
+      animation: floatDown linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatDown {
+      0% { transform: translateY(-100px); }
+      100% { transform: translateY(110vh); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .hearts {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10;
+      font-size: 2.2rem;
+      animation: bounce 1.5s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-15px); }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.1rem; }
+      .quote-list li { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🎉 Happy Birthday Dania 🎉</h1>
+    <h2>To My Dear Friend — Even Goodbyes Can't Fade the Bloom of Your Light 💐</h2>
+
+    <ul class="quote-list">
+      <li>May your birthday bring you smiles, even if it brings me tears. 🌧️</li>
+      <li>As you begin a new chapter, I hope your days bloom brighter than ever. 🌸</li>
+      <li>You leaving doesn't erase the moments we shared — they’ll live in my heart forever. 💔</li>
+      <li>I never imagined saying goodbye would come wrapped in birthday wishes. 🌙</li>
+      <li>Sometimes people leave, but the bond remains — unspoken, untouched, unforgettable. 🕊️</li>
+      <li>You’re more than a memory — you’re a melody I’ll keep humming. 🎶</li>
+      <li>Even though you’re walking away, I’m still whispering happy birthday from afar. 🌠</li>
+      <li>This birthday, I gift you freedom, love, and a silent prayer from someone who still cares. 🙏</li>
+      <li>In another life, we might’ve shared more birthdays… but I’m grateful for this one. 🕰️</li>
+      <li>To my dear Dania — thank you for everything, even if this is the end of our story. 🥀</li>
+    </ul>
+
+    <button onclick="alert('🌸 You’ll always be remembered, Dania. Happy Birthday! 🌸')">Send a Final Wish 💌</button>
+  </div>
+
+  <div class="hearts">💖</div>
+
+  <div class="emoji-flowers" id="emojiContainer"></div>
+
+  <script>
+    const flowerEmojis = ["🌸", "🌷", "🌼", "🌺", "💐", "🌻"];
+    const container = document.getElementById("emojiContainer");
+
+    function createEmojiFlower() {
+      const emoji = document.createElement("div");
+      emoji.className = "emoji";
+      emoji.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+      emoji.style.left = Math.random() * 100 + "vw";
+      emoji.style.animationDuration = (4 + Math.random() * 4) + "s";
+      emoji.style.top = "-50px";
+      container.appendChild(emoji);
+      setTimeout(() => emoji.remove(), 9000);
+    }
+
+    setInterval(createEmojiFlower, 300);
+  </script>
+
+</body>
+</html>
